@@ -15,6 +15,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            @if(Session::has('student_deleted'))
+                                <div class="alert alert-success" role="alert">
+                                    {{Session::get('student_deleted')}}
+                                </div>
+                            @endif
                             All Students
                             <div >
                                 <a href="/add-student" class="btn btn-success">Add Student</a>

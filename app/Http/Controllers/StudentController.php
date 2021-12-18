@@ -50,6 +50,14 @@ class StudentController extends Controller
     }
     public function deleteStudent($id){
         Student::where('id' , $id)->delete() ;
-        //return back()->with('post_deleted', 'Post has been deleted successfully!');
+        return back()->with('student_deleted', 'Post has been deleted successfully!');
+    }
+
+    /// just update_delete function
+    public function deletePost($id){
+        $student = Student::find($id);
+        unlink(public_path('images'). '/' . $student->profileimage);
+        $student->delete() ;
+        return back()->with('student_deleted', 'Student deleted successfully!');
     }
 }
